@@ -178,11 +178,26 @@ The Fundamental Shape
     </section>
 
     @include('layouts.footer')
+
+<style>
+
+.custom_fc_frame {
+
+right: 50px !important;
+bottom: 30px !important;
+
+}
+
+</style>
+
 <script>
+
   window.fcWidget.init({
     token: "8370be82-968a-4b56-8db3-96d6e72b8415",
     host: "https://wchat.freshchat.com"
   });
+
 </script>
+
   </body>
 @endsection

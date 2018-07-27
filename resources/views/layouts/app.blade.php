@@ -83,8 +83,6 @@
     </div>
 
     <script>
-      // Make sure fcWidget.init is included before setting these values
-
       // To set unique user id in your system when it is available
       window.fcWidget.setExternalId("{{ Auth::user()->id }}");
 
