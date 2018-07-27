@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <script src="https://wchat.freshchat.com/js/widget.js"></script>
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -81,6 +81,27 @@
             @yield('content')
         </main>
     </div>
+
+    <script>
+      // Make sure fcWidget.init is included before setting these values
+
+      // To set unique user id in your system when it is available
+      window.fcWidget.setExternalId("{{ Auth::user()->id }}");
+
+      // To set user name
+      window.fcWidget.user.setFirstName("{{ Auth::user()->name }}");
+
+      // To set user email
+      window.fcWidget.user.setEmail("{{ Auth::user()->email }}");
+
+      // To set user properties
+      window.fcWidget.user.setProperties({
+        plan: "{{ Auth::user()->plan }}",                 // meta property 1
+        status: "Active"                                  // meta property 2
+      });
+    </script>
+
+
 </body>
 </html>
 

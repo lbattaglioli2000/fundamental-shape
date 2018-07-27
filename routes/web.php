@@ -47,9 +47,7 @@ Route::post('/charge', function(){
 		return redirect()->back()->with('success', "Payment sent!");
 	}
 
-	return redirect()->back()->with('error', "Payment not sent! An error occured.");
-
-})->name('charge');
+	return redirect()->back()->with('error', "Payment not sent! An error occured.");})->name('charge');
 
 Route::middleware(['admin'])->group(function () {
     Route::get('/admin', function () {

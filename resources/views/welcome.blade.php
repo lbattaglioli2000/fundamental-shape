@@ -178,6 +178,11 @@ The Fundamental Shape
     </section>
 
     @include('layouts.footer')
-
+<script>
+  window.fcWidget.init({
+    token: "8370be82-968a-4b56-8db3-96d6e72b8415",
+    host: "https://wchat.freshchat.com"
+  });
+</script>
   </body>
 @endsection
