@@ -91,22 +91,26 @@
 
     </script>
 
-    <script>
-      // To set unique user id in your system when it is available
-      window.fcWidget.setExternalId("{{ Auth::user()->id }}");
+    @if(Auth::check())
 
-      // To set user name
-      window.fcWidget.user.setFirstName("{{ Auth::user()->name }}");
+        <script>
+          // To set unique user id in your system when it is available
+          window.fcWidget.setExternalId("{{ Auth::user()->id }}");
 
-      // To set user email
-      window.fcWidget.user.setEmail("{{ Auth::user()->email }}");
+          // To set user name
+          window.fcWidget.user.setFirstName("{{ Auth::user()->name }}");
 
-      // To set user properties
-      window.fcWidget.user.setProperties({
-        plan: "{{ Auth::user()->plan }}",                 // meta property 1
-        status: "Active"                                  // meta property 2
-      });
-    </script>
+          // To set user email
+          window.fcWidget.user.setEmail("{{ Auth::user()->email }}");
+
+          // To set user properties
+          window.fcWidget.user.setProperties({
+            plan: "{{ Auth::user()->plan }}",                 // meta property 1
+            status: "Active"                                  // meta property 2
+          });
+        </script>
+
+    @endif
 
 
 </body>
