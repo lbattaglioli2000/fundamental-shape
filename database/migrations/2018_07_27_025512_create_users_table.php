@@ -15,9 +15,21 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
+            $table->boolean('is_admin')->default(0);
+
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('phone');
             $table->string('password');
+
+            $table->string('slackURL')->default('#');
+
+            $table->string('company');
+            $table->string('domain')->unique();
+
+            $table->integer('balance')->default(0);
+            $table->string('plan');
+
             $table->rememberToken();
             $table->timestamps();
         });

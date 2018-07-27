@@ -3,23 +3,25 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\User;
 use View;
 
-class AppServiceProvider extends ServiceProvider
+class ComposerServiceProvider extends ServiceProvider
 {
     /**
-     * Bootstrap any application services.
+     * Bootstrap services.
      *
      * @return void
      */
     public function boot()
     {
-        //
+        // Using class based composers...
+        View::composer(
+            'admin', 'App\Http\ViewComposers\AdminComposer'
+        );
     }
 
     /**
-     * Register any application services.
+     * Register services.
      *
      * @return void
      */

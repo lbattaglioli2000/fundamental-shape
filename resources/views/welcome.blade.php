@@ -165,8 +165,8 @@ The Fundamental Shape
     <section class="callout" id="contact">
       <div class="container text-center">
         <h2 style="color:white;" class="mx-auto mb-5">What're you waiting for?</h2>
-        <a class="btn btn-primary btn-xl" href="mailto:luigi@fundamentalshape.com">Email Us Today!</a>
-      </div>
+
+        <a class="btn btn-primary btn-xl" href="{{ route('register') }}">Register your Business Today!</a>
     </section>
 
     <!-- Login -->

@@ -2,45 +2,21 @@
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" href="#">
+                <a class="nav-link {{ Request::is('admin') ? 'active' : '' }}" href="#">
                   <span data-feather="home"></span>
-                  Dashboard <span class="sr-only">(current)</span>
+                  Dashboard
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file"></span>
-                  Orders
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="shopping-cart"></span>
-                  Products
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="users"></span>
-                  Customers
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="bar-chart-2"></span>
-                  Reports
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="layers"></span>
-                  Integrations
+                <a class="nav-link {{ Request::is('admin/job/new') ? 'active' : '' }}" href="#" data-toggle="modal" data-target="#trackjob">
+                  <span data-feather="credit-card"></span>
+                  Send a bill
                 </a>
               </li>
             </ul>
 
             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-              <span>Saved reports</span>
+              <span>Generate reports</span>
               <a class="d-flex align-items-center text-muted" href="#">
                 <span data-feather="plus-circle"></span>
               </a>
@@ -73,3 +49,84 @@
             </ul>
           </div>
         </nav>
+
+<!-- Modal -->
+<div class="modal fade" id="trackjob" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Bill a client</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        @if(session()->has('success'))
+            <div class="alert alert-success">
+              The user was billed!
+            </div>
+        @endif
+
+        @if(session()->has('error'))
+            <div class="alert alert-danger">
+              The user was not billed! An error occured!
+            </div>
+        @endif
+
+        <form action="/admin/job/new" method="post">
+
+          @csrf
+
+          <div class="form-group">
+            <label>Client</label>
+            <select class="form-control" name="client">
+              <option selected></option>
+              @foreach($users as $user)
+                <option value="{{ $user->id }}">{{ $user->name }} ({{ $user->domain }})</option>
+              @endforeach
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Bill amount</label>
+            <input class="form-control" name="charge" type="text">
+            <small class="form-text text-muted">Please specify the amount in <b>pennies</b>, as this makes it easier for Stripe to process the payment.</small>
+          </div>
+
+          <div class="form-group">
+            <label>Description of the work</label>
+            <textarea name="description" class="form-control" rows="10"></textarea>
+          </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn btn-block btn-outline-primary btn-lg">Send bill</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+@if (count($errors) > 0)
+    $('#trackjob').modal('show');
+@endif
+
+@if(session()->has('success') || session()->has('error'))
+    $('#trackjob').modal('show');
+@endif
+
+</script>
