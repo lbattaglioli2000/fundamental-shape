@@ -83,6 +83,15 @@
     </div>
 
     <script>
+
+      window.fcWidget.init({
+        token: "8370be82-968a-4b56-8db3-96d6e72b8415",
+        host: "https://wchat.freshchat.com"
+      });
+
+    </script>
+
+    <script>
       // To set unique user id in your system when it is available
       window.fcWidget.setExternalId("{{ Auth::user()->id }}");
 

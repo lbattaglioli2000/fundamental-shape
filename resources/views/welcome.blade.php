@@ -179,17 +179,6 @@ The Fundamental Shape
 
     @include('layouts.footer')
 
-<style>
-
-.custom_fc_frame {
-
-right: 50px !important;
-bottom: 30px !important;
-
-}
-
-</style>
-
 <script>
 
   window.fcWidget.init({
