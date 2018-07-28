@@ -55,19 +55,19 @@ Admin Home
 					        </button>
 					      </div>
 					      <div class="modal-body">
-					      	<h3><i class="far fa-user"></i> {{ Auth::user()->name }} <span class="badge badge-pill badge-primary">{{ Auth::user()->plan }}</span></h3>
+					      	<h3><i class="far fa-user"></i> {{ $user->name }} <span class="badge badge-pill badge-primary">{{ $user->plan }}</span></h3>
 
 					      	<hr>
 
-		                    <p><i class="far fa-building"></i>  {{ Auth::user()->company }}</p>
+		                    <p><i class="far fa-building"></i>  {{ $user->company }}</p>
 
-		                    <p><i class="fas fa-link"></i>  {{ Auth::user()->domain }}</p>
+		                    <p><i class="fas fa-link"></i>  {{ $user->domain }}</p>
 
-		                    <p><i class="fas fa-envelope"></i>  {{ Auth::user()->email }}</p>
+		                    <p><i class="fas fa-envelope"></i>  {{ $user->email }}</p>
 
-		                    <p><i class="fas fa-phone"></i>  {{ Auth::user()->phone }}</p>
+		                    <p><i class="fas fa-phone"></i>  {{ $user->phone }}</p>
 
-		                    <p><i class="fab fa-slack"></i>  {{ Auth::user()->slackURL }}</p>
+		                    <p><i class="fab fa-slack"></i>  {{ $user->slackURL }}</p>
 
 		                    <p><a class="btn btn-lg btn-block btn-outline-primary" target="_blank" href="https://{{ $user->slackURL }}"><i class="fab fa-slack"></i> Visit The Slack Workspace</a></p>
 					      </div>
