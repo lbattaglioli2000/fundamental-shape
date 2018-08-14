@@ -41,50 +41,59 @@
                             </div>
                         @endif
 
-                        Your current bill is
-                        <h2>${{ number_format((Auth::user()->balance /100), 2, '.', ' ') }}</h2>
                         @if(Auth::user()->balance > 0)
+
+                            Your current bill is
+                            <h2>${{ number_format(Auth::user()->balance / 100, 2, '.', ',') }}
+                            </h2>
+                            
                             <h4>Here's what was done:</h4>
 
-                            <table class="table">
-                              <thead>
-                                <tr>
-                                  <th scope="col">Job ID #</th>
-                                  <th scope="col">Amount</th>
-                                  <th scope="col">Description</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-
-                                @foreach(Auth::user()->jobs as $job)
-
+                            <table class="table table-bordered">
+                                <thead>
                                     <tr>
-                                      <th scope="row">{{ $job->id }}</th>
-                                      <td>${{ number_format(($job->charge /100), 2, '.', ' ') }}</td>
-                                      <td>{{ $job->description }}</td>
+                                        <th scope="col">Job ID #</th>
+                                        <th scope="col">Amount</th>
+                                        <th scope="col">Description</th>
                                     </tr>
+                                </thead>
+                                <tbody>
 
-                                @endforeach
+                                    @foreach(Auth::user()->jobs as $job)
 
-                              </tbody>
-                            </table>
+                                        <tr>
+                                          <th scope="row">{{ $job->id }}</th>
+                                          <td>${{ number_format(($job->charge /100), 2, '.', ' ') }}</td>
+                                          <td>{{ $job->description }}</td>
+                                        </tr>
 
-                            <form action="/charge" method="POST">
-                                @csrf
-                              <script
-                                src="https://checkout.stripe.com/checkout.js" 
-                                class="stripe-button"
-                                data-key="{{ env('STRIPE_KEY') }}"
-                                data-amount="{{ Auth::user()->balance }}"
-                                data-name="The Fundamental Shape"
-                                data-description="Securely pay for our work."
-                                data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-                                data-locale="auto">
-                              </script>
-                              <input type="hidden" value="{{ Auth::user()->balance }}" name="amount">
-                            </form>
+                                    @endforeach
 
-                            
+                                  </tbody>
+                                </table>
+
+                                <p><b>Please note, your price has been adjusted to take into account the credit card processing fee. (2.9% + $0.30)</b></p>
+
+                                <form action="/charge" method="POST">
+                                    @csrf
+                                  <script
+                                    src="https://checkout.stripe.com/checkout.js" 
+                                    class="stripe-button"
+                                    data-key="{{ env('STRIPE_KEY') }}"
+                                    data-amount="{{ Auth::user()->balance }}"
+                                    data-name="The Fundamental Shape"
+                                    data-description="Securely pay for our work."
+                                    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                                    data-locale="auto">
+                                  </script>
+                                  <input type="hidden" value="{{ Auth::user()->balance }}" name="amount">
+                                </form>
+                        
+                        @else
+                            <div class="alert alert-info">
+                                You have no charges on your account!
+                            </div>
+                        
                         @endif
                     </div>
                 </div>

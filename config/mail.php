@@ -31,6 +31,11 @@ return [
 
     'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
 
+    'mailgun' => [
+        'domain' => env('MAILGUN_DOMAIN'),
+        'secret' => env('MAILGUN_KEY'),
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | SMTP Host Port
@@ -56,8 +61,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'hello@fundamentalshape.com'),
+        'name' => env('MAIL_FROM_NAME', 'The Fundamental Shape'),
     ],
 
     /*
