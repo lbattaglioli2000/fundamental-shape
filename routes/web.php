@@ -58,7 +58,9 @@ Route::post('/charge', function(){
 
 Route::middleware(['admin'])->group(function () {
     Route::get('/admin', function () {return view('admin.home');});
+
     Route::post('/admin/job/new', 'JobController@post');
+    Route::get('/admin/delete/job/{job}', 'JobController@delete');
 
     Route::get('/admin/client/{user}', 'UserController@get');
     

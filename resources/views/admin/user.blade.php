@@ -188,6 +188,49 @@
 		  </div>
 		</div>
 
+		<br>
+
+		<div class="card">
+		  <h5 class="card-header">Charges</h5>
+		  <div class="card-body">
+
+		    @if($user->jobs->count() > 0)		    
+
+			    @foreach($user->jobs as $job)
+
+			    	<div class="card">
+					  <div class="card-header">
+					    Job ID: <b>{{ $job->id }} (${{ number_format(($job->charge / 100), 2, '.', ' ') }})</b>
+					  </div>
+					  <div class="card-body">
+					    <h5 class="card-title">Job Description</h5>
+
+					    <p>{{ $job->description }}</p>
+
+					    <a href="/admin/delete/job/{{ $job->id }}" class="btn btn-danger">Delete Server</a>
+					  </div>
+					  <div class="card-footer text-muted">
+					    Job Billed {{ $job->created_at->diffForHumans() }}
+					  </div>
+					</div>
+
+					<br>
+
+			    @endforeach
+
+		    @else
+
+			    <div class="alert alert-info">
+			    	<b>{{ $user->company }}</b> has no jobs or bills.
+			    </div>
+
+		    @endif
+
+		  </div>
+		</div>
+
+		<br>
+
 	</main>
 </div>
 @endsection

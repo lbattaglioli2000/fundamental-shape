@@ -46,4 +46,10 @@ class JobController extends Controller
 		return redirect()->back()->with('error', 'The user was not billed. An error occured.');
 
 	}
+
+	public function delete(Job $job)
+	{
+		$job->delete();
+		return back();
+	}
 }
