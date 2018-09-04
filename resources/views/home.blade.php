@@ -97,6 +97,50 @@
                         @endif
                     </div>
                 </div>
+
+                <br>
+
+                <div class="card">
+                    <div class="card-header">
+                        Servers
+                    </div>
+                    <div class="card-body">
+
+                        @if(Auth::user()->servers->count() > 0)
+                            
+                            <h4>Here are your servers</h4>
+
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Server Provider</th>
+                                        <th scope="col">Root Password</th>
+                                        <th scope="col">Database Password</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @foreach(Auth::user()->servers as $server)
+
+                                        <tr>
+                                          <th scope="row">{{ $server->server_provider }}</th>
+                                          <td><code>{{ $server->root_password }}</code></td>
+                                          <td><code>{{ $server->database_password }}</code></td>
+                                        </tr>
+
+                                    @endforeach
+
+                                  </tbody>
+                                </table>
+                        
+                        @else
+                            <div class="alert alert-info">
+                                You have no servers!
+                            </div>
+                        
+                        @endif
+                    </div>
+                </div>
         </div>
 
         <div class="col-md-4">

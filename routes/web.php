@@ -49,10 +49,21 @@ Route::post('/charge', function(){
 
 	return redirect()->back()->with('error', "Payment not sent! An error occured.");})->name('charge');
 
+// ADMIN 
+// 
+// 
+// ----------------------------------------------
+// This section of routes handles all of the admin
+// controls.
+
 Route::middleware(['admin'])->group(function () {
-    Route::get('/admin', function () {
-    	$users = User::all();
-        return view('admin.home', compact('users'));
-    });
+    Route::get('/admin', function () {return view('admin.home');});
     Route::post('/admin/job/new', 'JobController@post');
+
+    Route::get('/admin/client/{user}', 'UserController@get');
+    
+    Route::post('/admin/webhook/save', 'UserController@updateWebhook');
+
+    Route::post('/admin/new/server', 'ServerController@post');
+    Route::get('/admin/delete/server/{server}', 'ServerController@delete');
 });

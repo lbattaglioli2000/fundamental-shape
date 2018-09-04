@@ -21,7 +21,7 @@ Admin Home
 				</thead>
 				<tbody>
 
-					@foreach($users as $user)
+					@foreach(App\User::all() as $user)
 
 					<tr>
 
@@ -70,6 +70,8 @@ Admin Home
 		                    <p><i class="fab fa-slack"></i>  {{ $user->slackURL }}</p>
 
 		                    <p><a class="btn btn-lg btn-block btn-outline-primary" target="_blank" href="https://{{ $user->slackURL }}"><i class="fab fa-slack"></i> Visit The Slack Workspace</a></p>
+
+		                    <p><a class="btn btn-lg btn-block btn-outline-primary" href="/admin/client/{{ $user->id }}">View company profile</a></p>
 					      </div>
 					    </div>
 					  </div>

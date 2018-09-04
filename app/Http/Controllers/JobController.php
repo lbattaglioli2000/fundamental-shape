@@ -9,6 +9,11 @@ use App\Job;
 
 class JobController extends Controller
 {
+	public function __construct()
+    {
+        $this->middleware('admin');
+    }
+
 	public function post(Request $request)
 	{
 		$this->validate($request, [

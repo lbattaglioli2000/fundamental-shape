@@ -2,7 +2,7 @@
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link {{ Request::is('admin') ? 'active' : '' }}" href="#">
+                <a class="nav-link {{ Request::is('admin') ? 'active' : '' }}" href="/admin">
                   <span data-feather="home"></span>
                   Dashboard
                 </a>
@@ -16,34 +16,13 @@
             </ul>
 
             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-              <span>Generate reports</span>
-              <a class="d-flex align-items-center text-muted" href="#">
-                <span data-feather="plus-circle"></span>
-              </a>
+              <span>Client Jobs</span>
             </h6>
             <ul class="nav flex-column mb-2">
               <li class="nav-item">
                 <a class="nav-link" href="#">
                   <span data-feather="file-text"></span>
                   Current month
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-                  Last quarter
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-                  Social engagement
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-                  Year-end sale
                 </a>
               </li>
             </ul>
@@ -92,7 +71,7 @@
             <label>Client</label>
             <select class="form-control" name="client">
               <option selected></option>
-              @foreach($users as $user)
+              @foreach(\App\User::all() as $user)
                 <option value="{{ $user->id }}">{{ $user->name }} ({{ $user->domain }})</option>
               @endforeach
             </select>
@@ -119,14 +98,38 @@
   </div>
 </div>
 
-<script type="text/javascript">
+<!-- Modal -->
+<div class="modal fade" id="viewclient" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">View a client</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
 
-@if (count($errors) > 0)
-    $('#trackjob').modal('show');
-@endif
+        <form action="/admin/view/client/" method="post">
 
-@if(session()->has('success') || session()->has('error'))
-    $('#trackjob').modal('show');
-@endif
+          @csrf
 
-</script>
+          <div class="form-group">
+            <label>Client</label>
+            <select class="form-control" name="client">
+              <option selected></option>
+              @foreach(\App\User::all() as $user)
+                <option value="{{ $user->id }}">{{ $user->name }} ({{ $user->domain }})</option>
+              @endforeach
+            </select>
+          </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn btn-block btn-outline-primary btn-lg">View Client</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -161,6 +161,41 @@ The Fundamental Shape
       </div>
     </section>
 
+    <!-- Google -->
+    <section class="content-section bg-light" id="google">
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <img class="img-fluid" src="https://doublehorn.com/wp-content/uploads/2018/02/google-cloud-logo.png" alt="Google Cloud Logo">
+            <p class="lead mb-5">
+              We really like the software Google Cloud provides us. G Suite by Google Cloud provides us with workforce-ready tools that make it simple for teams to collaborate, iterate, and innovate faster, together through an integrated suite of secure, cloud-native collaboration and productivity apps powered by Google AI. We love their services so much, we think you will too. Using our unique referral code, you can save big time on a G Suite subscription.
+            </p>
+            <a class="btn btn-dark btn-xl js-scroll-trigger" href="https://gsuite.google.com/" target="_blank">Check out G Suite</a>
+            <hr>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <img class="img-fluid" style="height:300px;" src="http://pluspng.com/img-png/digitalocean-logo-png-open-2000.png" alt="DigitalOcean Logo">
+            <p class="lead mb-5">
+              We rely on DigitalOcean to affordably create and deploy cloud server instances to host your website or web application. They offer plans ranging from $5 a month (for a server that has 1 GB memory, 1 vCPU, a 25 GB SSD, and 1TB of data transfer), to a server at $950 a month (that has 192 GB memory, 32 vCPUs, a 3,840 GB SSD, with 12TB data transfer). The price varies based on your needs, and we’ll help you figure out what you need. <b>You can also get $10 in credit, when you sign up through our special code!</b>
+            </p>
+            <a class="btn btn-dark btn-xl js-scroll-trigger" href="https://m.do.co/c/18029c61c7a7" target="_blank">Signup for DigitalOcean and get $10!</a>
+            <hr>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <img class="img-fluid" src="https://cdn-images-1.medium.com/max/720/1*hUuioUcs_0tzu7mMwr9udA.png" alt="Laravel Logo">
+            <p class="lead mb-5">
+              We use Laravel and the products like Forge to easily create and deploy PHP applications. Laravel is a free MVC style web development framework that makes creating applications super easy. Laravel Forge is a service that makes deploying Laravel applications easy.
+            </p>
+            <a class="btn btn-dark btn-xl js-scroll-trigger" href="https://laravel.com" target="_blank">Learn about Laravel</a> <a class="btn btn-dark btn-xl js-scroll-trigger" href="https://forge.laravel.com" target="_blank">Learn about Laravel Forge</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Callout -->
     <section class="callout" id="contact">
       <div class="container text-center">

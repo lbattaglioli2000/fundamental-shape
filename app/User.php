@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Job;
+use App\Server;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -29,7 +30,13 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function jobs(){
+    public function jobs()
+    {
         return $this->hasMany(Job::class);
+    }
+
+    public function servers()
+    {
+        return $this->hasMany(Server::class);
     }
 }
