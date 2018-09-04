@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
     "content-hash": "6020f0ef45c99a7b6617389fed8e3c7e",
@@ -640,12 +640,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "714ed1cc20fe22ce40eb2d0f4272a5c0ef40f0ac"
+                "reference": "6a8ab1356b5497c7a15f6d12c682e5a53409df77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/714ed1cc20fe22ce40eb2d0f4272a5c0ef40f0ac",
-                "reference": "714ed1cc20fe22ce40eb2d0f4272a5c0ef40f0ac",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/6a8ab1356b5497c7a15f6d12c682e5a53409df77",
+                "reference": "6a8ab1356b5497c7a15f6d12c682e5a53409df77",
                 "shasum": ""
             },
             "require": {
@@ -772,7 +772,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2018-08-14T19:42:44+00:00"
+            "time": "2018-09-04T18:46:23+00:00"
         },
         {
             "name": "laravel/tinker",

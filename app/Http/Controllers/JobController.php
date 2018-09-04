@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 use App\User;
 use App\Job;
+use App\Notifications\NewBill;
+
+use  \GuzzleHttp\Client;
 
 class JobController extends Controller
 {
@@ -27,10 +30,16 @@ class JobController extends Controller
 			'charge' => $request->charge,
 			'description' => $request->description,
 		])){
+
 			$user = new User();
 			$user = User::find($request->client);
 			$user->balance += $request->charge;
 			$user->save();
+
+			$job = $user->jobs()->latest()->first();
+
+			$user->notify(new NewBill($job));
+
 			return redirect()->back()->with('success', 'The user has been billed!');
 		}
 

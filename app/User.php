@@ -39,4 +39,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Server::class);
     }
+
+    public function routeNotificationForSlack($notification)
+    {
+        return $this->webhook_url;
+    }
 }

@@ -77,6 +77,13 @@
 
 					</div>
 				</div>
+			@else
+				<div class="col-md-8">
+						<div class="alert alert-success">
+							<h3>Billing is all set!</h3>
+							<p>This customer has a webhook on file for Slack billing notifications. You can now bill them and have an alert show up in Slack. We reccomend sending this to the <code>#general</code> channel.</p>
+						</div>
+					</div>
 			@endif
 		</div>
 
