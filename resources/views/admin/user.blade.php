@@ -207,7 +207,7 @@
 
 					    <p>{{ $job->description }}</p>
 
-					    <a href="/admin/delete/job/{{ $job->id }}" class="btn btn-danger">Delete Server</a>
+					    <a href="/admin/delete/job/{{ $job->id }}" class="btn btn-danger">Delete Job</a>
 					  </div>
 					  <div class="card-footer text-muted">
 					    Job Billed {{ $job->created_at->diffForHumans() }}

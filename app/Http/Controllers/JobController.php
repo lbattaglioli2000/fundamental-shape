@@ -49,7 +49,12 @@ class JobController extends Controller
 
 	public function delete(Job $job)
 	{
+		$user = $job->user;
+		$user->balance = $user->balance - $job->charge;
+		
+		$user->save();
 		$job->delete();
+
 		return back();
 	}
 }
