@@ -62,8 +62,8 @@
                             
                             <h4>Here's what was done:</h4>
 
-                            <table class="table table-bordered">
-                                <thead>
+                            <table class="table table-bordered table-striped table-hover">
+                                <thead class="thead-dark">
                                     <tr>
                                         <th scope="col">Job ID #</th>
                                         <th scope="col">Amount</th>
@@ -115,6 +115,45 @@
 
                 <div class="card">
                     <div class="card-header">
+                        Shared Files
+                    </div>
+                    <div class="card-body">
+
+                        @if(Auth::user()->files->count() > 0)
+
+                            <h4>Here are the files you have shared with us.</h4>
+                        <br>
+                                <table class="table table-bordered table-striped table-hover">
+
+                                    <thead class="thead-dark">
+                                    <th>File ID</th>
+                                    <th>Filename</th>
+                                    <th>Shared</th>
+                                    <th>View</th>
+                                    </thead>
+
+                                    @foreach(Auth::user()->files as $file)
+                                        <tr>
+                                            <td><b>{{ $file->id }}</b></td>
+                                            <td>{{ $file->description }}</td>
+                                            <td>{{ $file->created_at->diffForHumans() }}</td>
+                                            <td><a target="_blank" href="{{ route('admin.get.file', $file->id) }}" class="btn btn-block btn-outline-primary">View File</a></td>
+                                        </tr>
+                                    @endforeach
+                                </table>
+                        @else
+                            <div class="alert alert-info">
+                                You have not shared any files with us.
+                            </div>
+
+                        @endif
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="card">
+                    <div class="card-header">
                         Servers
                     </div>
                     <div class="card-body">
@@ -122,9 +161,10 @@
                         @if(Auth::user()->servers->count() > 0)
                             
                             <h4>Here are your servers</h4>
+                        <br>
 
-                            <table class="table table-bordered">
-                                <thead>
+                            <table class="table table-bordered table-striped table-hover">
+                                <thead class="thead-dark">
                                     <tr>
                                         <th scope="col">Server Provider</th>
                                         <th scope="col">Root Password</th>
