@@ -44,10 +44,11 @@ Route::post('/charge', function(){
 		$user->save();
 
 		// redirect back to dashboard
-		return redirect()->back()->with('success', "Payment sent!");
+		return redirect()->back()->with('pay-success', "Payment sent!");
 	}
 
-	return redirect()->back()->with('error', "Payment not sent! An error occured.");})->name('charge');
+	return redirect()->back()->with('pay-error', "Payment not sent! An error occurred.");})->name('charge');
+Route::post('/file/submit', 'FileController@post')->name('file.submit');
 
 // ADMIN 
 // 
@@ -68,4 +69,6 @@ Route::middleware(['admin'])->group(function () {
 
     Route::post('/admin/new/server', 'ServerController@post');
     Route::get('/admin/delete/server/{server}', 'ServerController@delete');
+
+    Route::get('/admin/get/file/{file}', 'FileController@get')->name('admin.get.file');
 });

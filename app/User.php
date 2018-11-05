@@ -4,6 +4,7 @@ namespace App;
 
 use App\Job;
 use App\Server;
+use App\File;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -18,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'phone', 'password', 'company', 'domain', 'plan'
+        'name', 'email', 'phone', 'password', 'company', 'domain', 'plan', 'webhook_url'
     ];
 
     /**
@@ -38,6 +39,11 @@ class User extends Authenticatable
     public function servers()
     {
         return $this->hasMany(Server::class);
+    }
+
+    public function files()
+    {
+        return $this->hasMany(File::class);
     }
 
     public function routeNotificationForSlack($notification)

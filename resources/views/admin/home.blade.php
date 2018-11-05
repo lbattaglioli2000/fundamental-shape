@@ -34,7 +34,7 @@ Admin Home
 						</td>
 
 						<td>
-							${{ number_format(($user->balance /100), 2, '.', ' ') }}
+							${{ number_format(($user->balance /100), 2, '.', ',') }}
 						</td>
 
 						<td>

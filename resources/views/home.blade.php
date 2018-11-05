@@ -4,6 +4,19 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+
+            @if (session()->has('success'))
+                <div class="alert alert-success" role="alert">
+                    {{ session()->get('success') }}
+                </div>
+            @endif
+
+                @if (session()->has('error'))
+                    <div class="alert alert-danger" role="alert">
+                        {{ session()->get('error') }}
+                    </div>
+                @endif
+
             <div class="card">
                 <div class="card-header">Dashboard</div>
 
@@ -29,13 +42,13 @@
                     </div>
                     <div class="card-body">
 
-                        @if(session()->has('success'))
+                        @if(session()->has('pay-success'))
                             <div class="alert alert-success">
                                 Your payment has been recieved!
                             </div>
                         @endif
 
-                        @if(session()->has('error'))
+                        @if(session()->has('pay-error'))
                             <div class="alert alert-success">
                                 Your payment was not recieved, an error occured. Please try again or contact us for help.
                             </div>
@@ -63,7 +76,7 @@
 
                                         <tr>
                                           <th scope="row">{{ $job->id }}</th>
-                                          <td>${{ number_format(($job->charge /100), 2, '.', ' ') }}</td>
+                                          <td>${{ number_format(($job->charge /100), 2, '.', ',') }}</td>
                                           <td>{{ $job->description }}</td>
                                         </tr>
 
@@ -159,6 +172,46 @@
                     <p><i class="fas fa-phone"></i>  {{ Auth::user()->phone }}</p>
 
                     <p><i class="fab fa-slack"></i>  {{ Auth::user()->slackURL }}</p>
+
+                </div>
+            </div>
+            <hr>
+            <div class="card">
+                <div class="card-body">
+                    <h3>File Sharing</h3>
+                    <hr>
+
+                    <p>If you need to share a file, please use this form to upload and share the file with your
+                    developer.</p>
+
+                    <form method="post" action="{{ route('file.submit') }}" enctype="multipart/form-data">
+
+                        @csrf
+
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
+                        <div class="form-group">
+                            <label for="filename">What is this?</label>
+                            <input type="text" name="filename" class="form-control" id="filename" aria-describedby="filenameHelp" placeholder="Enter a filename">
+                            <small id="emailHelp" class="form-text text-muted">Please be descriptive!</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleFormControlFile1">Upload a file</label>
+                            <input type="file" class="form-control-file" id="file" name="file">
+                        </div>
+
+                        <button type="submit" class="btn btn-block btn-outline-primary">Share File</button>
+
+                    </form>
 
                 </div>
             </div>

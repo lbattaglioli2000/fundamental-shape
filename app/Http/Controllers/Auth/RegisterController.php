@@ -75,6 +75,7 @@ class RegisterController extends Controller
             'domain' => $data['domain'],
             'plan' => $data['plan'],
             'phone' => $data['phone'],
+            'webhook_url' => '#'
         ]);
     }
 }

@@ -29,6 +29,7 @@ class JobController extends Controller
 			'user_id' => $request->client,
 			'charge' => $request->charge,
 			'description' => $request->description,
+            'paid' => 0
 		])){
 
 			$user = new User();
@@ -47,14 +48,4 @@ class JobController extends Controller
 
 	}
 
-	public function delete(Job $job)
-	{
-		$user = $job->user;
-		$user->balance = $user->balance - $job->charge;
-		
-		$user->save();
-		$job->delete();
-
-		return back();
-	}
 }

@@ -10,7 +10,7 @@ class Job extends Model
 {
 
 	protected $fillable = [
-		'user_id', 'charge', 'description'
+		'user_id', 'charge', 'description', 'paid'
 	];
 	
     public function user()

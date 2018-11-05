@@ -41,7 +41,7 @@
 				</div>
 			</div>
 
-			@if($user->webhook_url == '')
+			@if($user->webhook_url == '#')
 				<div class="col-md-8">
 					<div class="alert alert-info">
 						<h3>No webhook on file.</h3>
@@ -79,11 +79,11 @@
 				</div>
 			@else
 				<div class="col-md-8">
-						<div class="alert alert-success">
-							<h3>Billing is all set!</h3>
-							<p>This customer has a webhook on file for Slack billing notifications. You can now bill them and have an alert show up in Slack. We reccomend sending this to the <code>#general</code> channel.</p>
-						</div>
-					</div>
+                    <div class="alert alert-success">
+                        <h3>Billing is all set!</h3>
+                        <p>This customer has a webhook on file for Slack billing notifications. You can now bill them and have an alert show up in Slack. We reccomend sending this to the <code>#general</code> channel.</p>
+                    </div>
+                </div>
 			@endif
 		</div>
 
@@ -193,30 +193,25 @@
 		<div class="card">
 		  <h5 class="card-header">Charges</h5>
 		  <div class="card-body">
+              @if($user->jobs->count() > 0)
+                  <table class="table table-bordered table-striped table-hover">
 
-		    @if($user->jobs->count() > 0)		    
+                      <thead class="thead-dark">
+                          <th>Job ID</th>
+                          <th>Description</th>
+                          <th>Amount</th>
+                          <th>Date Billed</th>
+                      </thead>
 
-			    @foreach($user->jobs as $job)
-
-			    	<div class="card">
-					  <div class="card-header">
-					    Job ID: <b>{{ $job->id }} (${{ number_format(($job->charge / 100), 2, '.', ' ') }})</b>
-					  </div>
-					  <div class="card-body">
-					    <h5 class="card-title">Job Description</h5>
-
-					    <p>{{ $job->description }}</p>
-
-					    <a href="/admin/delete/job/{{ $job->id }}" class="btn btn-danger">Delete Job</a>
-					  </div>
-					  <div class="card-footer text-muted">
-					    Job Billed {{ $job->created_at->diffForHumans() }}
-					  </div>
-					</div>
-
-					<br>
-
-			    @endforeach
+                      @foreach($user->jobs as $job)
+                          <tr>
+                              <td><b>{{ $job->id }}</b></td>
+                              <td>{{ $job->description }}</td>
+                              <td>${{ number_format(($job->charge / 100), 2, '.', ',') }}</td>
+                              <td>{{ $job->created_at->diffForHumans() }}</td>
+                          </tr>
+					@endforeach
+				</table>
 
 		    @else
 
@@ -230,6 +225,46 @@
 		</div>
 
 		<br>
+
+        <br>
+
+        <div class="card">
+            <h5 class="card-header">Files</h5>
+            <div class="card-body">
+                @if($user->files->count() > 0)
+                    <table class="table table-bordered table-striped table-hover">
+
+                        <thead class="thead-dark">
+                            <th>File ID</th>
+                            <th>Filename</th>
+                            <th>Owner</th>
+                            <th>Shared</th>
+                            <th>View</th>
+                        </thead>
+
+                        @foreach($user->files as $file)
+                            <tr>
+                                <td><b>{{ $file->id }}</b></td>
+                                <td>{{ $file->description }}</td>
+                                <td>{{ $file->user->name }}</td>
+                                <td>{{ $file->created_at->diffForHumans() }}</td>
+                                <td><a target="_blank" href="{{ route('admin.get.file', $file->id) }}" class="btn btn-block btn-outline-primary">View File</a></td>
+                            </tr>
+                        @endforeach
+                    </table>
+
+                @else
+
+                    <div class="alert alert-info">
+                        <b>{{ $user->company }}</b> has not shared any files with you.
+                    </div>
+
+                @endif
+
+            </div>
+        </div>
+
+        <br>
 
 	</main>
 </div>
