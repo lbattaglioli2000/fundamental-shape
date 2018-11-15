@@ -59,7 +59,14 @@
                                         @csrf
                                     </form>
                                 </div>
+
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{{ route('home') }}"><i class="fas fa-home"></i></a>
                             </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('user.help') }}"><i class="fas fa-info-circle"></i></a>
+                                </li>
 
                             @if(Auth::user()->is_admin == 1)
 
