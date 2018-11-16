@@ -26,6 +26,31 @@
                 </a>
               </li>
             </ul>
+
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Help Center</span>
+            </h6>
+            <ul class="nav flex-column mb-2">
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('admin/help/articles') ? 'active' : '' }}" href="{{ route('admin.help.articles') }}">
+                        <span data-feather="file-text"></span>
+                        View articles
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link {{ Request::is('admin/new/article') ? 'active' : '' }}" href="{{ route('admin.help.new.article') }}">
+                  <span data-feather="file-text"></span>
+                  Create new article
+                </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('admin/new/category') ? 'active' : '' }}" href="{{ route('admin.help.new.category') }}">
+                        <span data-feather="file-text"></span>
+                        Create new category
+                    </a>
+                </li>
+            </ul>
           </div>
         </nav>
 

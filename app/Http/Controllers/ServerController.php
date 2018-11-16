@@ -7,6 +7,11 @@ use App\Server;
 
 class ServerController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+
     public function post(Request $request)
     {
     	$this->validate($request, [

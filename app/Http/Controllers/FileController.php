@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Redirect;
 
 class FileController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function post(Request $request){
         $this->validate($request, [
             'filename' => 'required|string',

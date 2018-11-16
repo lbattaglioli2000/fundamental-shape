@@ -74,4 +74,12 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/admin/delete/server/{server}', 'ServerController@delete');
 
     Route::get('/admin/get/file/{file}', 'FileController@get')->name('admin.get.file');
+
+    Route::get('/admin/help/articles', function(){return view('admin.help.articles');})->name("admin.help.articles");
+
+    Route::get('/admin/new/category', 'CategoryController@index')->name('admin.help.new.category');
+    Route::post('/admin/new/category', 'CategoryController@post')->name('admin.help.new.category.post');
+
+    Route::get('/admin/new/article', 'ArticleController@index')->name('admin.help.new.article');
+    Route::post('/admin/new/article', 'ArticleController@post')->name('admin.help.new.article.post');
 });
