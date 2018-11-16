@@ -243,7 +243,7 @@ The Fundamental Shape
           <div class="row">
               <div class="col-lg-12">
                   <!-- Slack -->
-                  <a class="portfolio-item" href="http://cloud.google.com" target="_blank">
+                  <a class="portfolio-item" href="http://slack.com" target="_blank">
               <span class="caption">
                 <span class="caption-content">
                   <h2>Slack</h2>
