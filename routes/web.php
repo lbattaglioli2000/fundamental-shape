@@ -50,6 +50,9 @@ Route::post('/charge', function(){
 	return redirect()->back()->with('pay-error', "Payment not sent! An error occurred.");})->name('charge');
 Route::post('/file/submit', 'FileController@post')->name('file.submit');
 
+Route::get('/help', 'HelpController@index')->name('user.help');
+
+
 // ADMIN 
 // 
 // 

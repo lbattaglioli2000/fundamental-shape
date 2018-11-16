@@ -161,38 +161,100 @@ The Fundamental Shape
       </div>
     </section>
 
-    <!-- Google -->
-    <section class="content-section bg-light" id="google">
-      <div class="container text-center">
-        <div class="row">
-          <div class="col-lg-10 mx-auto">
-            <img class="img-fluid" src="https://doublehorn.com/wp-content/uploads/2018/02/google-cloud-logo.png" alt="Google Cloud Logo">
-            <p class="lead mb-5">
-              We really like the software Google Cloud provides us. G Suite by Google Cloud provides us with workforce-ready tools that make it simple for teams to collaborate, iterate, and innovate faster, together through an integrated suite of secure, cloud-native collaboration and productivity apps powered by Google AI. We love their services so much, we think you will too. Using our unique referral code, you can save big time on a G Suite subscription.
-            </p>
-            <a class="btn btn-dark btn-xl js-scroll-trigger" href="https://gsuite.google.com/" target="_blank">Check out G Suite</a>
-            <hr>
-          </div>
+    <style>
+        .portfolio-item {
+            margin-bottom: 25px;
+        }
+    </style>
+
+    <!-- Portfolio -->
+    <section class="content-section" id="portfolio">
+      <div class="container">
+        <div class="content-section-heading text-center">
+          <h3 class="text-secondary mb-0">Technologies</h3>
+          <h2 class="mb-5">Here's what technology we use</h2>
         </div>
         <div class="row">
-          <div class="col-lg-10 mx-auto">
-            <img class="img-fluid" style="height:300px;" src="http://pluspng.com/img-png/digitalocean-logo-png-open-2000.png" alt="DigitalOcean Logo">
-            <p class="lead mb-5">
-              We rely on DigitalOcean to affordably create and deploy cloud server instances to host your website or web application. They offer plans ranging from $5 a month (for a server that has 1 GB memory, 1 vCPU, a 25 GB SSD, and 1TB of data transfer), to a server at $950 a month (that has 192 GB memory, 32 vCPUs, a 3,840 GB SSD, with 12TB data transfer). The price varies based on your needs, and we’ll help you figure out what you need. <b>You can also get $10 in credit, when you sign up through our special code!</b>
-            </p>
-            <a class="btn btn-dark btn-xl js-scroll-trigger" href="https://m.do.co/c/18029c61c7a7" target="_blank">Signup for DigitalOcean and get $10!</a>
-            <hr>
+          <div class="col-lg-6">
+              <!-- Google -->
+            <a class="portfolio-item" href="http://cloud.google.com" target="_blank">
+              <span class="caption">
+                <span class="caption-content">
+                  <h2>Google Cloud</h2>
+                  <p class="mb-0">We really like Google Cloud. G Suite provides us with workforce-ready tools that make it simple for teams to collaborate and innovate faster</p>
+                </span>
+              </span>
+              <img class="img-fluid" src="https://9to5google.com/wp-content/uploads/sites/4/2018/04/google-cloud-logo.jpg?quality=82&strip=all&w=1600" alt="">
+            </a>
+              <!-- Laravel -->
+            <a class="portfolio-item" href="https://laravel.com" target="_blank">
+              <span class="caption">
+                <span class="caption-content">
+                  <h2>Laravel</h2>
+                  <p class="mb-0">Laravel is a web development framework that makes creating powerful web applications, super easy.</p>
+                </span>
+              </span>
+              <img class="img-fluid" src="http://codingphase.com/wp-content/uploads/2018/05/laravel.png" alt="">
+            </a>
+              <!-- AWS -->
+              <a class="portfolio-item" href="https://aws.amazon.com" target="_blank">
+              <span class="caption">
+                <span class="caption-content">
+                  <h2>Amazon Web Services</h2>
+                  <p class="mb-0">AWS is a secure cloud services platform, offering compute power, database storage, content delivery and other functionality to help businesses scale and grow.</p>
+                </span>
+              </span>
+                  <img class="img-fluid" src="https://cdn-images-1.medium.com/max/1200/1*tFl-8wQUENETYLjX5mYWuA.png" alt="">
+              </a>
+          </div>
+          <div class="col-lg-6">
+              <!-- DigitalOcean -->
+            <a class="portfolio-item" href="https://m.do.co/c/71608756d144" target="_blank">
+              <span class="caption">
+                <span class="caption-content">
+                  <h2>DigitalOcean</h2>
+                  <p class="mb-0">We rely on DigitalOcean to create and deploy cloud server instances to host your website or web application.</p>
+                </span>
+              </span>
+              <img class="img-fluid" src="https://cdn-images-1.medium.com/max/2000/1*fWwTV1czR-JzdVpG7Sv6MQ.png" alt="">
+            </a>
+              <!-- Laravel Forge -->
+            <a class="portfolio-item" href="https://forge.laravel.com" target="_blank">
+              <span class="caption">
+                <span class="caption-content">
+                  <h2>Laravel Forge</h2>
+                  <p class="mb-0">Forge helps us to maintain your web servers and allows us to easily and quickly deploy changes to your application or website.</p>
+                </span>
+              </span>
+              <img class="img-fluid" src="https://i0.wp.com/wp.laravel-news.com/wp-content/uploads/2018/07/learn-laravel-forge-featured.png?resize=2200%2C1125" alt="">
+            </a>
+              <!-- Bootstrap -->
+              <a class="portfolio-item" href="https://getbootstrap.com" target="_blank">
+              <span class="caption">
+                <span class="caption-content">
+                  <h2>Bootstrap</h2>
+                  <p class="mb-0">Bootstrap is an open source CSS framework that helps make your site responsive and beautiful.</p>
+                </span>
+              </span>
+                  <img class="img-fluid" src="https://cdn-images-1.medium.com/max/1200/1*lduEjOI-EQltoRbmKSICeA.jpeg" alt="">
+              </a>
           </div>
         </div>
-        <div class="row">
-          <div class="col-lg-10 mx-auto">
-            <img class="img-fluid" src="https://cdn-images-1.medium.com/max/720/1*hUuioUcs_0tzu7mMwr9udA.png" alt="Laravel Logo">
-            <p class="lead mb-5">
-              We use Laravel and the products like Forge to easily create and deploy PHP applications. Laravel is a free MVC style web development framework that makes creating applications super easy. Laravel Forge is a service that makes deploying Laravel applications easy.
-            </p>
-            <a class="btn btn-dark btn-xl js-scroll-trigger" href="https://laravel.com" target="_blank">Learn about Laravel</a> <a class="btn btn-dark btn-xl js-scroll-trigger" href="https://forge.laravel.com" target="_blank">Learn about Laravel Forge</a>
+          <div class="row">
+              <div class="col-lg-12">
+                  <!-- Slack -->
+                  <a class="portfolio-item" href="http://cloud.google.com" target="_blank">
+              <span class="caption">
+                <span class="caption-content">
+                  <h2>Slack</h2>
+                  <p class="mb-0">We think its important to have a good communication flow. Email can be monotinous and things can easily get lost. With Slack, communication between teams is secure, organized, clean, and dare we say it, fun!</p>
+                </span>
+              </span>
+                      <img class="img-fluid" src="https://edsurge.imgix.net/uploads/post/image/7787/16277774446_a17afdcdf2_o-1457137615.jpg?auto=compress%2Cformat&w=2000&h=810&fit=crop" alt="">
+                  </a>
+
+              </div>
           </div>
-        </div>
       </div>
     </section>
 
